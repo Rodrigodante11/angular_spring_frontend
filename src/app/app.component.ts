@@ -10,21 +10,24 @@ export class AppComponent implements AfterViewInit{
   title = 'clientes-app';
   ngAfterViewInit(): void {
 
+    // tslint:disable-next-line:only-arrow-functions
     (function($) { // executado apos inicializar o componente
-      "use strict";
+      'use strict';
 
       // Add active state to sidbar nav links
-      var path = window.location.href; // because the 'href' property of the DOM element is the absolute path
-      $("#layoutSidenav_nav .sb-sidenav a.nav-link").each(function() {
+      // tslint:disable-next-line:prefer-const
+      const path = window.location.href; // because the 'href' property of the DOM element is the absolute path
+      $('#layoutSidenav_nav .sb-sidenav a.nav-link').each(function() {
         if (this.href === path) {
-          $(this).addClass("active");
+          $(this).addClass('active');
         }
       });
 
       // Toggle the side navigation
-      $("#sidebarToggle").on("click", function(e) {
+      // tslint:disable-next-line:only-arrow-functions
+      $('#sidebarToggle').on('click', function(e) {
         e.preventDefault();
-        $("body").toggleClass("sb-sidenav-toggled");
+        $('body').toggleClass('sb-sidenav-toggled');
       });
     })(jQuery);
   }
