@@ -16,10 +16,16 @@ export class ClientesService {
     return this.http.post<Cliente>('http://localhost:8080/api/clientes' , cliente);
   }
 
-  getClientes(): Cliente {
-    const client =  new Cliente();
-    client.nome = 'Rodrigo Augusto';
-    client.cpf = '88888888888';
-    return client;
+  getClientes(): Observable<Cliente[]> {
+    return this.http.get<Cliente[]>('http://localhost:8080/api/clientes/');
+  }
+
+  getClientesTeste(): Cliente[] {
+    const cliente = new Cliente();
+    cliente.id = 1 ;
+    cliente.nome = 'Fulano';
+    cliente.dataCadastro = '1/04/2020';
+    cliente.cpf = '12345678910';
+    return [cliente];
   }
 }
