@@ -1,10 +1,22 @@
-<h1 class="mt-4">Clientes</h1>
+<h1 class="mt-4" xmlns="http://www.w3.org/1999/html">Clientes</h1>
 <ol class="breadcrumb mb-4">
   <li class="breadcrumb-item active">Cadastro</li>
 </ol>
 <div class="container">
   <form #clienteForm="ngForm" (ngSubmit)="onsubmit()">
+
     <div class="row">
+      <div class="col-md-12">
+        <div class="alert alert-success" role="alert" *ngIf="success">
+          Cliente salvo/atualizado com sucesso!
+        </div>
+
+        <div class="alert alert-danger" role="alert" *ngFor="let error of errors">
+          {{ error }}
+        </div>
+      </div>
+    </div>
+    <div class="row" *ngIf="cliente.id">
       <div class="col-md-6">
         <div class="form-group">
           <label> ID: </label>
@@ -15,7 +27,7 @@
       <div class="col-md-6">
         <div class="form-group">
           <label> Data Cadastro: </label>
-          <input type="text" name="datacadastro" class="form-control" disabled="true"  [(ngModel)]="cliente.datacadastro"/>
+          <input type="text" name="datacadastro" class="form-control" disabled="true"  [(ngModel)]="cliente.dataCadastro"/>
         </div>
       </div>
 
