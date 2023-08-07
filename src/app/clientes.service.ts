@@ -15,6 +15,9 @@ export class ClientesService {
   salvar( cliente: Cliente ): Observable<Cliente>{  // por ser asincrono , fica OBSERVANDO e esperando o retorno
     return this.http.post<Cliente>('http://localhost:8080/api/clientes' , cliente);
   }
+  atualizar( cliente: Cliente ): Observable<Cliente>{  // por ser asincrono , fica OBSERVANDO e esperando o retorno
+    return this.http.put<Cliente>(`http://localhost:8080/api/clientes/${cliente.id}` , cliente);
+  }
 
   getClientes(): Observable<Cliente[]> {
     return this.http.get<Cliente[]>('http://localhost:8080/api/clientes/');

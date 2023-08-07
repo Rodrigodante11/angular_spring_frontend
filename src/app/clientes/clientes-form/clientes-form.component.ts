@@ -3,6 +3,7 @@ import { Router, ActivatedRoute, Params } from '@angular/router';
 
 import { Cliente} from '../cliente';
 import {ClientesService} from '../../clientes.service';
+import {Observable} from "rxjs";
 
 @Component({
   selector: 'app-clientes-form',
@@ -22,14 +23,18 @@ export class ClientesFormComponent implements OnInit {
   }
 
   ngOnInit(): void {
-     const params: Params = this.activatedRouter.params;
-     if ( params && params.value && params.value.id){
-       this.id = params.value.id;
-       this.servise.getClientesById(this.id)
-           .subscribe(
-               response => this.cliente = response,
-               );
-     }
+     const params: Observable<Params> = this.activatedRouter.params;
+     params.subscribe( urlParams => {
+         this.id = urlParams.id;
+
+         if ( this.id){
+             this.servise
+                 .getClientesById(this.id)
+                 .subscribe(
+                     response => this.cliente = response,
+                 );
+         }
+     });
   }
 
   voltarParaListagem(){
@@ -37,18 +42,30 @@ export class ClientesFormComponent implements OnInit {
   }
 
   onsubmit(){
-    this.servise
-      .salvar(this.cliente)
-      .subscribe( response => {
-        this.success = true;
-        this.errors = null;
-        this.cliente = response;
+      if (this.id){
 
-      }, errorResponse => {
-        this.errors =  errorResponse.error.errors;
-        this.success = false;
+          this.servise
+              .atualizar(this.cliente)
+              .subscribe( response => {
+                  this.success = true;
+                  this.errors = null;
+              }, errorResponse => {
+                  this.errors = [ 'Erro ao Atualizar o cliente!'];
+                  }
+              );
+      }else{
+          this.servise
+              .salvar(this.cliente)
+              .subscribe( response => {
+                  this.success = true;
+                  this.errors = null;
+                  this.cliente = response;
 
-      });
+              }, errorResponse => {
+                  this.errors =  errorResponse.error.errors;
+                  this.success = false;
+
+              });
+      }
   }
-
 }
