@@ -14,7 +14,7 @@ export class ClientesFormComponent implements OnInit {
 
   cliente: Cliente;
   success: boolean = false;
-  errors: String[] ;
+  errors: string[] ;
   id: number;
 
   constructor( private servise: ClientesService, private router: Router, private activatedRouter: ActivatedRoute) {
