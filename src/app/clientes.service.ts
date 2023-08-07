@@ -20,12 +20,7 @@ export class ClientesService {
     return this.http.get<Cliente[]>('http://localhost:8080/api/clientes/');
   }
 
-  getClientesTeste(): Cliente[] {
-    const cliente = new Cliente();
-    cliente.id = 1 ;
-    cliente.nome = 'Fulano';
-    cliente.dataCadastro = '1/04/2020';
-    cliente.cpf = '12345678910';
-    return [cliente];
+  getClientesById(id: number): Observable<Cliente>{
+    return this.http.get<any>(`http://localhost:8080/api/clientes/${id}`);
   }
 }
