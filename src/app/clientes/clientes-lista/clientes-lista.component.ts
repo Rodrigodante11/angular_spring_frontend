@@ -10,7 +10,7 @@ import {ClientesService} from '../../clientes.service';
   styleUrls: ['./clientes-lista.component.css']
 })
 export class ClientesListaComponent implements OnInit {
-
+  p = 1;
   clientes: Cliente[] = [] ;
   clienteSelecionado: Cliente;
   mensagemSucesso: string;
@@ -23,7 +23,7 @@ export class ClientesListaComponent implements OnInit {
     this.service
         .getClientes()
         .subscribe( response =>
-          this.clientes = response
+          this.clientes = response.content
         );
   }
 

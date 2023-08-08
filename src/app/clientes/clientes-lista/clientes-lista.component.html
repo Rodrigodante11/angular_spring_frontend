@@ -36,7 +36,7 @@
                     <th>Acoes </th>
                 </thead>
                 <tbody>
-                    <tr *ngFor="let cliente of clientes">
+                    <tr *ngFor="let cliente of clientes | paginate: { itemsPerPage: 1, currentPage: p }">
                         <td>{{ cliente.id }}</td>
                         <td>{{ cliente.nome }}</td>
                         <td>{{ cliente.cpf }}</td>
@@ -55,6 +55,15 @@
                     </tr>
                 </tbody>
             </table>
+            <pagination-controls
+                    (pageChange)="p = $event"
+                    previousLabel="Anterior"
+                    nextLabel="Próximo"
+                    screenReaderPaginationLabel="Paginação"
+                    screenReaderPageLabel="página"
+                    screenReaderCurrentLabel="Você está na página"
+                    maxSize="5"
+            ></pagination-controls>
         </div>
     </div>
 
