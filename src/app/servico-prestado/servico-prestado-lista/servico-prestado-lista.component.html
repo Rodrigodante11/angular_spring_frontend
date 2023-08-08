@@ -34,4 +34,32 @@
             </div>
         </div>
     </form>
+
+    <br />
+    <div class="row">
+        <div class="alert alert-danger" role="alert" *ngIf="message">
+            {{ message }}
+        </div>
+        <div class="col-md-12">
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>Cliente</th>
+                        <th>Descricao</th>
+                        <th>Valor</th>
+                        <th>Data</th>
+                    </tr>
+                </thead>
+                <tbody>
+                <tr *ngFor="let  servicoPrestado of listaServicoPrestado">
+                    <td> {{ servicoPrestado.cliente.nome }}</td>
+                    <td> {{ servicoPrestado.descricao }}</td>
+                    <td> {{ servicoPrestado.valor }}</td>
+                    <td> {{ servicoPrestado.data }}</td>
+
+                </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
 </div>
