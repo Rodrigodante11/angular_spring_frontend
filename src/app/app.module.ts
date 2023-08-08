@@ -2,6 +2,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { HttpClientModule } from '@angular/common/http';
 import { NgxPaginationModule } from 'ngx-pagination';
+import {  ServicoPrestadoModule } from './servico-prestado/servico-prestado.module';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -21,7 +22,8 @@ import { ClientesService } from './clientes.service';
     AppRoutingModule,
     TemplateModule,
     ClientesModule,
-    NgxPaginationModule
+    NgxPaginationModule,
+    ServicoPrestadoModule
   ],
   providers: [
     ClientesService

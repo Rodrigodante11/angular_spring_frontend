@@ -1,3 +1,34 @@
+# Criando o modulo
+`ng g m --routing servicoPrestado`
+
+# criando o componente
+`ng g c --skipTests=true servico-prestado/servicoPrestadoForm`
+<br />
+<br />
+`ng g c --skipTests=true servico-prestado/servicoPrestadoLista`
+
+### Passo 1 : Apos criar os componentes entre no modulo em 'servico-prestado.module.ts' e adicione os componentes para importacao
+`exports: [`
+
+>  ServicoPrestadoFormComponent, <br />
+   ServicoPrestadoListaComponent
+> 
+]
+
+## Passo 2 : Adicione o RouterModule e formsModule no imports:
+`import: [`
+
+>  FormsModule, <br />
+    RouterModule
+>
+]
+
+### passo 3: import o modulo de servico no module principal ' app.modules.ts' :
+`import: [`
+
+>  ServicoPrestadoModule
+>
+]
 # ClientesApp
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 9.1.1.
