@@ -23,10 +23,11 @@ import { ClientesService } from './clientes.service';
     TemplateModule,
     ClientesModule,
     NgxPaginationModule,
-    ServicoPrestadoModule
+    ServicoPrestadoModule,
   ],
   providers: [
-    ClientesService
+    ClientesService,
+    ServicoPrestadoModule,
   ],
   bootstrap: [AppComponent]
 })

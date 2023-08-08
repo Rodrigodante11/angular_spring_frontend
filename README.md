@@ -29,6 +29,18 @@
 >  ServicoPrestadoModule
 >
 ]
+
+### Criar o servico do servicoPrestado:
+`ng g s servicoPrestado --skipTests=true`
+
+### Adicione o  servicoPrestado em app.modules providers:
+
+`import: [`
+
+>  ServicoPrestadoModule
+
+]
+
 # ClientesApp
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 9.1.1.
