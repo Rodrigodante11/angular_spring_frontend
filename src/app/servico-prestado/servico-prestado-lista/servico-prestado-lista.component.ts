@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import {ServicoPrestadoBusca} from "./servicoPrestadoBusca";
-import {ServicoPrestadoService} from "../../servico-prestado.service";
+import {ServicoPrestadoBusca} from './servicoPrestadoBusca';
+import {ServicoPrestadoService} from '../../servico-prestado.service';
 
 @Component({
   selector: 'app-servico-prestado-lista',

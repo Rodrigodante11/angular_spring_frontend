@@ -3,7 +3,7 @@ import {HttpClient, HttpParams} from '@angular/common/http';
 import { ServicoPrestado } from './servico-prestado/servicoPrestado';
 import { Observable } from 'rxjs';
 import { environment } from '../environments/environment';
-import {ServicoPrestadoBusca} from "./servico-prestado/servico-prestado-lista/servicoPrestadoBusca";
+import {ServicoPrestadoBusca} from './servico-prestado/servico-prestado-lista/servicoPrestadoBusca';
 
 @Injectable({
   providedIn: 'root'
