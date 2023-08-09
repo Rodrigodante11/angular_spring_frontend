@@ -1,34 +1,11 @@
-import { Component , AfterViewInit } from '@angular/core';
-import jQuery from 'jquery';
+import { Component  } from '@angular/core';
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
-export class AppComponent implements AfterViewInit{
+export class AppComponent {
   title = 'clientes-app';
-  ngAfterViewInit(): void {
 
-    // tslint:disable-next-line:only-arrow-functions
-    (function($) { // executado apos inicializar o componente
-      'use strict';
-
-      // Add active state to sidbar nav links
-      // tslint:disable-next-line:prefer-const
-      const path = window.location.href; // because the 'href' property of the DOM element is the absolute path
-      $('#layoutSidenav_nav .sb-sidenav a.nav-link').each(function() {
-        if (this.href === path) {
-          $(this).addClass('active');
-        }
-      });
-
-      // Toggle the side navigation
-      // tslint:disable-next-line:only-arrow-functions
-      $('#sidebarToggle').on('click', function(e) {
-        e.preventDefault();
-        $('body').toggleClass('sb-sidenav-toggled');
-      });
-    })(jQuery);
-  }
 }
