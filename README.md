@@ -30,6 +30,18 @@
 >
 ]
 
+### Usando o interceptor do angular para inteptar todas requisicoes e enviar o token 
+`ng g interceptor token --skipTests=true`
+
+### usando guard para proteger as rotas sem ter logado
+
+`ng g guard auth --skipTests=true`
+`CanActivate`
+
+### usando o auth - angular-jwt para ver o tempo de expiracao do token:
+`npm install --save @auth0/angular-jwt@4.0.0`
+
+
 ### Criar o servico do servicoPrestado:
 `ng g s servicoPrestado --skipTests=true`
 
