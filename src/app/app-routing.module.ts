@@ -13,10 +13,10 @@ const routes: Routes = [
   {
     path: '',
     component: LayoutComponent, children: [
-      {
-        path : 'home' ,
-        component: HomeComponent , canActivate: [AuthGuard]
-      }]},
+      {path : 'home' ,component: HomeComponent , canActivate: [AuthGuard] },
+      {path: '', redirectTo: '/home', pathMatch: 'full'}
+
+        ]},
 
 ];
 
