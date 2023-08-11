@@ -18,9 +18,14 @@ export class LoginComponent {
   constructor(private router: Router,  private authService: AuthService) {}
 
   onSubmit(){
-    this.router.navigate(['/home'])
-    console.log( this.username)
-    console.log( this.password)
+    this.authService.tentarLogar(this.username, this.password)
+      .subscribe( response => {
+        console.log(response)
+        this.router.navigate(['/home'])
+    }, ErrorRespons => {
+        this.errors = [ ' Usuario e/ou senha incorretos']
+    })
+
   }
 
   preparaCadastro(event){
